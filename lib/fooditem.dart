@@ -46,11 +46,17 @@ class fooditem extends StatelessWidget {
               children: [
                 Text(
                   "$name",
-                  style: TextStyle(fontSize: 20, color: Colors.black87),
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold),
                 ),
                 Text(
                   "$price BDT",
-                  style: TextStyle(fontSize: 20, color: Colors.black87),
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             )

@@ -2,6 +2,7 @@
 //Hamburger is a sandwich consisting of a cooked meat patty on a bun or roll.Hamburgers are traditionally made with ground beef and served with onions, tomatoes, lettuce, ketchup, and other garnishes.
 import 'dart:ffi';
 
+import 'package:foodappui/discountpage.dart';
 import 'package:foodappui/fontsizegoogle.dart';
 import 'package:foodappui/single_food.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,8 @@ import 'package:foodappui/fooditem.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodappui/svg.dart';
 import 'package:foodappui/upperside.dart';
+
+import 'checkout.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({super.key});
@@ -501,11 +504,20 @@ class _HomepageState extends State<Homepage> {
                                                                       child:
                                                                           Center(
                                                                         child:
-                                                                            Text(
-                                                                          "Buy Now",
-                                                                          style: TextStyle(
-                                                                              fontSize: 22,
-                                                                              fontWeight: FontWeight.bold),
+                                                                            GestureDetector(
+                                                                          onTap:
+                                                                              () {
+                                                                            Navigator.push(
+                                                                              context,
+                                                                              MaterialPageRoute(builder: (context) => Checkoutpage()),
+                                                                            );
+                                                                          },
+                                                                          child:
+                                                                              Text(
+                                                                            "Buy Now",
+                                                                            style:
+                                                                                TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -534,73 +546,88 @@ class _HomepageState extends State<Homepage> {
             ),
             Padding(
               padding: EdgeInsets.only(left: 20),
-              child: Row(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        height: 140,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Color.fromARGB(255, 246, 186, 206),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Image.asset(
-                            "assets/hotdog.png",
-                            height: 40,
-                            fit: BoxFit.fitWidth,
-                          ),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0, right: 25.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Checkoutpage()),
+                          );
+                        },
+                        child: Discount(
+                          photo: "assets/hotdog.png",
+                          foodname: "Delicious hot dog",
+                          price1: "200",
+                          price2: "170",
+                          clr: Color.fromARGB(255, 246, 186, 206),
                         ),
                       ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 20),
-                        child: Column(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            SizedBox(
-                              height: 25,
-                            ),
-                            Text(
-                              "Delicious hot dog",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Svgpic(),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "200 BDT",
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.redAccent),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 40),
-                    child: FloatingActionButton(
-                      onPressed: () {},
-                      child: Icon(Icons.add),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0, right: 25.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Checkoutpage()),
+                          );
+                        },
+                        child: Discount(
+                          photo: "assets/taco.png",
+                          foodname: "Spicy Taco",
+                          price1: "180",
+                          price2: "140",
+                          clr: Colors.indigoAccent,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0, right: 25.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Checkoutpage()),
+                          );
+                        },
+                        child: Discount(
+                          photo: "assets/popcorn.png",
+                          foodname: "Pop Corn",
+                          price1: "170",
+                          price2: "120",
+                          clr: Color.fromARGB(255, 175, 111, 218),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0, right: 25.0),
+                      child: GestureDetector(
+                        onDoubleTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Checkoutpage()),
+                          );
+                        },
+                        child: Discount(
+                          photo: "assets/pizza.png",
+                          foodname: "Sea Food Pizza",
+                          price1: "750",
+                          price2: "690",
+                          clr: Colors.indigoAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],

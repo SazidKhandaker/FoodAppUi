@@ -1,5 +1,6 @@
 import 'package:foodappui/Homepage.dart';
 import 'package:foodappui/fontsizegoogle.dart';
+import 'package:foodappui/sigin.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -105,6 +106,13 @@ class Loginpage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Sigin()),
+                              );
+                            },
                             child: Container(
                               child: Text(
                                 "Create account",

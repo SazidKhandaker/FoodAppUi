@@ -1,9 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ffi';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodappui/checkout.dart';
 import 'package:foodappui/fontsizegoogle.dart';
 import 'package:foodappui/ingredient.dart';
+import 'package:foodappui/loginpage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class singleitem extends StatefulWidget {
@@ -237,6 +242,12 @@ class _singleitemState extends State<singleitem> {
                         GestureDetector(
                           onTap: () {
                             print(number * widget.price);
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Checkoutpage()),
+                            );
                           },
                           child: Container(
                             height: 60,
